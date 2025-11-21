@@ -68,4 +68,4 @@ As the final step, we resize the image to the smaller dimensions (`28x28` in thi
 ---
 
 > [!Note] 
-> You can find the entire code used for processing in `readme-demo.py`.
+> You can find the entire code used for processing in `srcipts/readme-demo.py`.
