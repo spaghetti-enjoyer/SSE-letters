@@ -1,8 +1,8 @@
 # Smart Systems Engineering Letters Dataset
 
-This repository contains a dataset collected from the students in years 2020 and 2025, and currently accounts to a total of 2840 images. The images are divided in 15 classes, containing the letters shown below.
+This repository contains a dataset collected from the students in years 2020 and 2025, and currently accounts to a total of 2840 images. The images are divided in 15 classes, containing the letters shown in the image below.
 
-In this repository, you can find the folders with the letters available in 2 resolutions: `28 x 28` (MNIST style) and a slightly sharper `64 x 64`. in `raw-data` you can find the raw scans of the cards kindly provided by the students, as well as cropped and partially processed letters themselves. 
+In this repository, you can find the folders with the letters available in 2 resolutions: `28 x 28` (MNIST style) stored in `dataset-28` and a slightly sharper `64 x 64` stored in `dataset-64`. In `raw-data` you can find the raw scans of the cards kindly provided by the students, as well as cropped and partially processed letters themselves. In `scripts` you will find 2 short python scripts to demonstrate the image processing that was performed, as well as to count the final number of files in the datasets.
 
 > [!Note]
 > To use the letters from this dataset, copy the entire `dataset-28` or `dataset-64` folder into your downloads folder and specify its full path when you train your neural network.
