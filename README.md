@@ -4,3 +4,41 @@ This repository contains a dataset collected from the students in years 2020 and
 
 The dataset is constructed as follows and is currently available in 2 resolutions: `28 x 28` (MNIST style) and a slightly sharper `64 x 64` 
 
+## How do we process the images?
+
+First thing that is always needed is an initial picture. In our case, I was scanning `5 x 3` grids of letters that some of you may remember filling out. After cropping the image, we get the following:
+
+![frame](readme-images/frame.png)
+
+Now, we can divide the image into 15 squares, each containing exactly 1 letter. I will showcase the rest of the processing pipeline using the letter A as an example.
+
+![A cropped](readme-images/A-normal.png)
+
+After cropping, we can now begin the proper processing. First, we convert the image to grayscale and then apply variable thresholding to binarize it. As you can see, at this point the outline of the letter is black on a white background. However, traditionally it is the white objects on a black background that are treated as BLOBs in most morphological operations, rather than the other way around. So we invert the pixel values of the image so that white pixels `(255, 255, 255)` become black `(0, 0, 0)` and black become white. Now we have a white BLOB roughly in the center of the image with a black background. You can observe the results of these operations below:
+
+![A grayscale](readme-images/A-gray.png)
+
+![A bw](readme-images/A-bw.png)
+
+![A inv](readme-images/A-inverted.png)
+
+But we are not done yet! Sometimes because of imperfect cropping, some artifacts may appear on the image during processing. These artifacts may later cause wrong groups of neurons to activate during the CNN training and subsequently cause misclassifications. So naturally we would like to get rid of them. We can get rid of small artifacts by opening an image. Just look at the before and after: 
+
+![A inv](readme-images/A-inverted.png)
+
+![A open](readme-images/A-open.png)
+
+Now that we have a clear outline of the letter, we can further crop it to the bounding box of the remaining BLOB to get rid of inconsistent padding caused by letters being written in different parts of the initial bounding square. We also pad the image to make it square again. 
+
+![A bbox](readme-images/A-bbox.png)
+
+![A padded](readme-images/A-padded.png)
+
+As the final step, we resize the image to smaller dimensions using taking the averages of several pixels (similar principle to the mean filter). To get rid of the "blurriness", we apply thresholding once more and obtain a final sharp image of the letter:
+
+![A resized](readme-images/A-resized.png)
+
+![A final](readme-images/A-final.png)
+
+
+You can find the entire code used for processing in `readme-demo.py`
