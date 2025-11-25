@@ -39,8 +39,10 @@ y_off = (size - h) // 2
 padded[y_off:y_off+h, x_off:x_off+w] = bbox
 cv2.imwrite("readme-images/A-padded.png", padded)
 
+# resize to final size
 resized = cv2.resize(padded, (28, 28), interpolation=cv2.INTER_AREA)
 cv2.imwrite("readme-images/A-resized.png", resized)
 
+# final thresholding
 _, final = cv2.threshold(resized, 128, 255, cv2.THRESH_BINARY)
 cv2.imwrite("readme-images/A-final.png", final)
