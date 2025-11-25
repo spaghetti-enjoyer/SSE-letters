@@ -9,7 +9,7 @@ This repository contains a dataset collected from the students in years 2020 and
 In this repository, you can find the folders with the letters available in 2 resolutions: `28 x 28` (MNIST style) stored in `dataset-28` and a slightly sharper `64 x 64` stored in `dataset-64`. In `raw-data` you can find the raw scans of the cards kindly provided by the students, as well as cropped and partially processed letters themselves. In `scripts` you will see 2 short python scripts that demonstrate the image processing that was performed, as well as to count the final number of files in the datasets.
 
 > [!Note]
-> To use the letters from this dataset, copy the entire `dataset-28` or `dataset-64` folder into your downloads folder and specify its full path when you train your neural network.
+> To use the letters from this dataset, copy the entire `dataset-28` or `dataset-64` folder into your downloads folder and specify its full path when you train your neural network. To read the dataset into memory, you can use the functionality of [imageDatastore](https://nl.mathworks.com/help/matlab/ref/matlab.io.datastore.imagedatastore.html)
 
 Below you will find an explanation of how the letters were digitized and processed.
 
