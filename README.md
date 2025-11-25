@@ -1,4 +1,8 @@
-# Smart Systems Engineering Letters Dataset
+<p align="right">
+  <img src="readme-images/vu-logo-raster.png" width="200"/>
+</p>
+
+# VU CharWizard Dataset
 
 This repository contains a dataset collected from the students in years 2020 and 2025, and currently accounts to a total of 2840 images. The images are divided in 15 classes, containing the letters shown in the image below.
 
